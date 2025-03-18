@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Markdown Previewer</title>
+    <!-- Incluimos Tailwind CSS desde un CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="h-screen bg-gray-900 text-white font-sans overflow-hidden">
+    <!-- Contenedor principal -->
+    <div class="h-full flex flex-col">
+      <!-- Barra de herramientas -->
+      <!-- En móvil: el botón está abajo (orden inverso) -->
+      <!-- En desktop: el botón está arriba (orden normal) -->
+      <div class="flex flex-col md:flex-col-reverse flex-1 overflow-hidden">
+        <!-- Contenido principal (Editor y Vista Previa) -->
+        <main class="flex-1 flex flex-col md:flex-row p-6 gap-6 overflow-auto">
+          <!-- Sección del Editor -->
+          <section class="flex-1 bg-gray-800 p-6 rounded-xl shadow-2xl overflow-hidden">
+            <h2 class="text-2xl font-bold mb-6 text-blue-400">Editor</h2>
+            <!-- Área de texto para escribir Markdown -->
+            <textarea
+              id="markdown-input"
+              class="w-full h-64 md:h-full p-4 font-mono resize-none outline-none bg-gray-700 text-white rounded-lg focus:ring-2 focus:ring-blue-500 transition-all"
+              placeholder="Escribe tu código Markdown aquí..."
+            ></textarea>
+          </section>
+
+          <!-- Sección de Vista Previa -->
+          <section class="flex-1 bg-gray-800 p-6 rounded-xl shadow-2xl overflow-hidden">
+            <h2 class="text-2xl font-bold mb-6 text-green-400">.Vista Previa.</h2>
+            <!-- Contenedor para la vista previa -->
+            <div
+              id="preview-section"
+              class="h-64 md:h-full bg-gray-700 p-4 rounded-lg overflow-auto prose prose-invert max-w-none"
+            ></div>
+          </section>
+        </main>
+
+        <!-- Botón "Generar Vista Previa" -->
+        <header class="bg-gray-850 p-4 shadow-lg">
+          <div class="text-center">
+            <button
+              id="generate-html"
+              class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 active:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all"
+            >
+              Generar Vista Previa
+            </button>
+          </div>
+        </header>
+      </div>
+    </div>
+    <!-- Script para la lógica de la aplicación -->
+    <script src="./js/app.js"></script>
+  </body>
+</html>
